@@ -10,7 +10,7 @@ import {
 import {Picker} from '@react-native-picker/picker';
 
 const LogIn = () => {
-  const [phoneCode, setPhoneCode] = useState();
+  const [phoneCode, setPhoneCode, user = {phone: phoneCode}] = useState();
 
   return (
     <SafeAreaView>
@@ -28,7 +28,11 @@ const LogIn = () => {
             <Picker.Item label="+380" value="380" />
             <Picker.Item label="+971" value="971" />
           </Picker>
-          <TextInput style={styles.phoneInput} label="phone" />
+          <TextInput
+            style={styles.phoneInput}
+            label="phone"
+            value={user.phone}
+          />
         </View>
         <Text style={styles.inputLabel}>First Name</Text>
         <TextInput style={styles.input} label="firstName" />
