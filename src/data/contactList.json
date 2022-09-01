@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "avatar": "https://i.pravatar.cc/300?img=21",
+    "firstName": "Jadon",
+    "lastName": "Lindsay",
+    "username": "jadonlind",
+    "lastSeen": "online"
+  },
+  {
+    "id": 2,
+    "avatar": "https://i.pravatar.cc/300?img=22",
+    "firstName": "Shanna",
+    "lastName": "Peck",
+    "username": "shannapeck",
+    "lastSeen": "online"
+  },
+  {
+    "id": 3,
+    "avatar": "https://i.pravatar.cc/300?img=23",
+    "firstName": "Denise",
+    "lastName": "Rice",
+    "username": "deniserice",
+    "lastSeen": "last seen 5 minutes ago"
+  },
+  {
+    "id": 4,
+    "avatar": "https://i.pravatar.cc/300?img=24",
+    "firstName": "Melvin",
+    "lastName": "Obrien",
+    "username": "melvinobrien",
+    "lastSeen": "last seen 1 hour ago"
+  },
+  {
+    "id": 5,
+    "avatar": "https://i.pravatar.cc/300?img=25",
+    "firstName": "Glenn",
+    "lastName": "Greer",
+    "username": "glenngreer",
+    "lastSeen": "last seen 2 day ago"
+  }
+]
