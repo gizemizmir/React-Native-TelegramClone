@@ -1,27 +1,33 @@
 import React from 'react';
 import {View, StyleSheet, Text, Image, Pressable} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import useTheme from '../hooks/useTheme';
 
 const Setting = () => {
   const {navigate} = useNavigation();
+  const {theme} = useTheme();
 
   return (
-    <View style={styles.settingContainer}>
+    <View
+      style={[
+        styles.settingContainer,
+        {backgroundColor: theme?.backgroundColor},
+      ]}>
       <Image
         style={styles.profileImage}
-        source={{uri: 'https://i.pravatar.cc/300'}}
+        source={{uri: 'https://i.pravatar.cc/300?img=20'}}
       />
       <Pressable
         style={styles.settingButton}
         onPress={() => {
-          navigate('Theme');
+          navigate('ThemeSettingsScreen');
         }}>
         <Text style={styles.buttonText}>Theme</Text>
       </Pressable>
       <Pressable
         style={styles.settingButton}
         onPress={() => {
-          navigate('Profile');
+          navigate('ProfileSettingsScreen');
         }}>
         <Text style={styles.buttonText}>Edit Profile</Text>
       </Pressable>
@@ -34,8 +40,8 @@ const Setting = () => {
 
 const styles = StyleSheet.create({
   settingContainer: {
-    width: '90%',
-    height: '90%',
+    width: '100%',
+    height: '100%',
     display: 'flex',
     alignSelf: 'center',
     alignItems: 'center',
