@@ -1,9 +1,26 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {StyleSheet, View, TextInput, Text, Pressable} from 'react-native';
 import useTheme from '../hooks/useTheme';
+import {UserContext} from '../context/user';
 
 const Profile = () => {
   const {theme} = useTheme();
+  const {user, setUser} = useContext(UserContext);
+
+  const state = {
+    firstname: user?.firstname,
+    lastname: user?.lastname,
+    username: user?.username,
+  };
+
+  const handleUpdate = () => {
+    setUser({
+      firstname: state.firstname,
+      lastname: state.lastname,
+      username: state.username,
+      isLogin: true,
+    });
+  };
 
   return (
     <View
@@ -15,13 +32,37 @@ const Profile = () => {
         <Text style={[styles.inputLabel, {color: theme.color}]}>
           First Name
         </Text>
-        <TextInput style={styles.input} label="firstName" />
+        <TextInput
+          style={[styles.input, {color: theme.color}]}
+          label="firstName"
+          placeholder={user?.firstname}
+          placeholderTextColor={theme.greyText}
+          onChangeText={text => {
+            state.firstname = text;
+          }}
+        />
         <Text style={[styles.inputLabel, {color: theme.color}]}>Last Name</Text>
-        <TextInput style={styles.input} label="lastName" />
+        <TextInput
+          style={[styles.input, {color: theme.color}]}
+          label="lastName"
+          placeholder={user?.lastname}
+          placeholderTextColor={theme.greyText}
+          onChangeText={text => {
+            state.lastname = text;
+          }}
+        />
         <Text style={[styles.inputLabel, {color: theme.color}]}>Username</Text>
-        <TextInput style={styles.input} label="userName" />
-        <Pressable style={styles.button} onPress={{}}>
-          <Text style={styles.buttonText}>Login</Text>
+        <TextInput
+          style={[styles.input, {color: theme.color}]}
+          label="userName"
+          placeholder={user?.username}
+          placeholderTextColor={theme.greyText}
+          onChangeText={text => {
+            state.username = text;
+          }}
+        />
+        <Pressable style={styles.button} onPress={handleUpdate}>
+          <Text style={styles.buttonText}>Update</Text>
         </Pressable>
       </View>
     </View>
