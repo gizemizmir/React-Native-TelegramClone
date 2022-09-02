@@ -1,3 +1,5 @@
+import 'react-native-gesture-handler';
+
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
@@ -7,15 +9,25 @@
  */
 
 import React from 'react';
-import {SafeAreaView, Text, View} from 'react-native';
+import UserProvider from './provider/UserProvider';
+import ThemeProvider from './provider/ThemeProvider';
+import ChatProvider from './provider/ChatProvider';
+
+import {NavigationContainer} from '@react-navigation/native';
+
+import MainStackNavigation from './navigation/mainStackNavigation';
 
 const App = () => {
   return (
-    <SafeAreaView>
-      <View>
-        <Text>App.js</Text>
-      </View>
-    </SafeAreaView>
+    <NavigationContainer>
+      <UserProvider>
+        <ThemeProvider>
+          <ChatProvider>
+            <MainStackNavigation />
+          </ChatProvider>
+        </ThemeProvider>
+      </UserProvider>
+    </NavigationContainer>
   );
 };
 
