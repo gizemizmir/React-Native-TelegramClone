@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import LoginScreen from '../screens/LogIn';
@@ -6,10 +6,11 @@ import ChatScreen from '../screens/Chat';
 
 import BottomNavigation from './bottomNavigation';
 import useTheme from '../hooks/useTheme';
+import {UserContext} from '../context/user';
 
 const MainStackNav = createStackNavigator();
 const MainStackNavigation = () => {
-  const user = {};
+  const {user} = useContext(UserContext);
   const {theme} = useTheme();
 
   return (
@@ -17,7 +18,7 @@ const MainStackNavigation = () => {
       screenOptions={{
         headerShown: false,
       }}>
-      {user ? (
+      {user?.isLogin ? (
         <>
           <MainStackNav.Screen name="BottomNav" component={BottomNavigation} />
           <MainStackNav.Screen
