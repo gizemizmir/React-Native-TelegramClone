@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <View
       style={[styles.homeContainer, {backgroundColor: theme?.backgroundColor}]}>
-      <Text style={styles.editText}>Messages screen</Text>
+      <Text style={styles.editText}> </Text>
     </View>
   );
 };

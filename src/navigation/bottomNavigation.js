@@ -16,7 +16,6 @@ const BottomNavigation = () => {
   const {theme} = useTheme();
   return (
     <BottomNav.Navigator
-      initialRouteName="Messages"
       screenOptions={{
         tabBarStyle: {backgroundColor: theme.backgroundColor},
         tabBarInactiveTintColor: theme.color,
