@@ -1,11 +1,24 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {View, StyleSheet, Text, Image, Pressable} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import useTheme from '../hooks/useTheme';
+import {UserContext} from '../context/user';
 
 const Setting = () => {
   const {navigate} = useNavigation();
   const {theme} = useTheme();
+  const {user, setUser} = useContext(UserContext);
+
+  const handleLogout = () => {
+    user?.isLogin
+      ? setUser({
+          firstname: '',
+          lastname: '',
+          username: '',
+          isLogin: false,
+        })
+      : '';
+  };
 
   return (
     <View
@@ -31,7 +44,7 @@ const Setting = () => {
         }}>
         <Text style={styles.buttonText}>Edit Profile</Text>
       </Pressable>
-      <Pressable style={[styles.settingButton]} onPress={() => {}}>
+      <Pressable style={[styles.settingButton]} onPress={handleLogout}>
         <Text style={styles.buttonText}>Log out</Text>
       </Pressable>
     </View>
