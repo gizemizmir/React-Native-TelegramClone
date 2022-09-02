@@ -8,7 +8,7 @@ TR - Bu proje Patika.dev 'in düzenlediği "Akbank React Native Bootcamp" kapsam
 ## Screenshot APP
 
 <div style="display:flex; flex-direction:row; margin-right:20px;">
-<img src="src/assets/appScreen.gif" width="300" style="margin-right:30px;"/>
+<img src="src/appScreen.gif" width="300" style="margin-right:30px;"/>
 </div>
 <br/>
 <br/>
