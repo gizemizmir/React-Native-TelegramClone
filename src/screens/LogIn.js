@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -8,9 +8,29 @@ import {
   Pressable,
 } from 'react-native';
 import {Picker} from '@react-native-picker/picker';
+import {UserContext} from '../context/user';
 
 const LogIn = () => {
-  const [phoneCode, setPhoneCode, user = {phone: phoneCode}] = useState();
+  const [phoneCode, setPhoneCode] = useState();
+  const {user, setUser} = useContext(UserContext);
+
+  const state = {
+    phone: '',
+    firstname: '',
+    lastname: '',
+    username: '',
+    isLogin: true,
+  };
+
+  const handleLogin = async () => {
+    setUser({
+      phone: phoneCode + state.phone,
+      firstname: state.firstname,
+      lastname: state.lastname,
+      username: state.username,
+      isLogin: true,
+    });
+  };
 
   return (
     <SafeAreaView>
@@ -31,16 +51,36 @@ const LogIn = () => {
           <TextInput
             style={styles.phoneInput}
             label="phone"
-            value={user.phone}
+            onChangeText={text => {
+              state.phone = text;
+            }}
           />
         </View>
         <Text style={styles.inputLabel}>First Name</Text>
-        <TextInput style={styles.input} label="firstName" />
+        <TextInput
+          style={styles.input}
+          label="firstName"
+          onChangeText={text => {
+            state.firstname = text;
+          }}
+        />
         <Text style={styles.inputLabel}>Last Name</Text>
-        <TextInput style={styles.input} label="lastName" />
+        <TextInput
+          style={styles.input}
+          label="lastName"
+          onChangeText={text => {
+            state.lastname = text;
+          }}
+        />
         <Text style={styles.inputLabel}>Username</Text>
-        <TextInput style={styles.input} label="userName" />
-        <Pressable style={styles.button} onPress={{}}>
+        <TextInput
+          style={styles.input}
+          label="userName"
+          onChangeText={text => {
+            state.username = text;
+          }}
+        />
+        <Pressable style={styles.button} onPress={handleLogin}>
           <Text style={styles.buttonText}>Login</Text>
         </Pressable>
       </View>
